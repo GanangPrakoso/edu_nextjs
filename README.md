@@ -1,2 +1,15 @@
 # edu_nextjs
-for education only
+
+---
+
+### What will we learn
+
+- [What is NextJS?](https://nextjs.org/docs)
+- [Initialization](https://nextjs.org/docs/getting-started/installation)
+- [Folder Structure](https://nextjs.org/docs/getting-started/project-structure)
+- Routes
+  - [Defining Routes](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
+  - [Pages and Layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts)
+  - [Navigating between Pages](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating)
+  - [Dynamic Routes](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes)
+- [Loading and Error Handler](https://nextjs.org/docs/app/building-your-application/routing/error-handling)
