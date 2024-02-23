@@ -1,24 +1,18 @@
 import { Character } from "@/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { revalidateTag } from "next/cache";
+import { revalidateTag, revalidatePath } from "next/cache";
+import ButtonDelete from "../../../components/ButtonDelete";
 
 interface Props {
   char: Character;
-  setSelectedChar: React.Dispatch<React.SetStateAction<Character | null>>;
+  setSelectedChar: React.Dispatch<
+    React.SetStateAction<Character | null>
+  > | null;
 }
 
 export default function Card({ char, setSelectedChar }: Props) {
   const router = useRouter();
-
-  const deleteHandler = async (id: number) => {
-    const response = await fetch("http://localhost:3001/characters/" + id, {
-      method: "delete",
-    });
-
-    // revalidateTag("a");
-    router.refresh();
-  };
 
   return (
     <>
@@ -44,7 +38,7 @@ export default function Card({ char, setSelectedChar }: Props) {
                   "modal-char"
                 ) as HTMLDialogElement | null;
                 if (modalElement) {
-                  setSelectedChar(char);
+                  // setSelectedChar(char);
                   modalElement.showModal();
                 }
               }}
@@ -52,13 +46,15 @@ export default function Card({ char, setSelectedChar }: Props) {
               Add this Character!
             </button>
             <button
-              className="btn btn-error"
+              className="btn btn-info"
               onClick={() => {
-                deleteHandler(char.id);
+                router.push("/characters/" + char.id);
               }}
             >
-              delete
+              detail
             </button>
+
+            {/* <ButtonDelete id={char.id} /> */}
           </div>
         </div>
       </div>
