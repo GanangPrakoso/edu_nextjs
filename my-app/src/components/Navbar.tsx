@@ -44,6 +44,12 @@ export default function Navbar() {
             <li>
               <Link href="/characters">Characters</Link>
             </li>
+            <li>
+              <Link href="/add-char-csr">Add CSR</Link>
+            </li>
+            <li>
+              <Link href="/add-char-ssr">Add SSR</Link>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">

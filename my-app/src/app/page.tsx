@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Weabo mania",
+  description: "tempat berkumpul para wibu wangi hacktiv",
+};
+
 export default function Home() {
   return (
     <>

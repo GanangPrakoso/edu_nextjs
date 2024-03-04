@@ -1,4 +1,34 @@
 import { Character } from "@/types";
+import type { Metadata, ResolvingMetadata } from "next";
+
+type MetadataProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: MetadataProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const data: Character = await fetch(
+    `http://localhost:3001/characters/${id}`
+  ).then((res) => res.json());
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: data.name,
+    description: data.description,
+    openGraph: {
+      images: [data.imageUrl, ...previousImages],
+    },
+  };
+}
 
 async function fetchDetail(id: string): Promise<Character> {
   const response = await fetch("http://localhost:3001/characters/" + id);

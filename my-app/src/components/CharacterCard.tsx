@@ -1,6 +1,7 @@
 import { Character } from "@/types";
 import Link from "next/link";
 import { FaTrash, FaEye } from "react-icons/fa";
+import DeleteButton from "./DeleteButton";
 
 interface Props {
   char: Character;
@@ -25,9 +26,7 @@ export default function CharacterCard({ char }: Props) {
               see detail <FaEye />
             </Link>
 
-            <button className="btn btn-neutral">
-              <FaTrash />
-            </button>
+            <DeleteButton id={char.id} />
           </div>
         </div>
       </div>
